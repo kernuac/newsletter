@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Boletin FACSAL</title>
+        <link href="{{ url_for('/static/css/estilo.css') }}" />
+    </head>
+    <body>
+        <header>
+            {% block header %}
+            {% endblock %}
+        </header>
+        <nav>
+            {% block main_navbar %}
+            {% endblock %}
+        </nav>
+        <main>
+            {% block main_content %}
+            {% endblock %}
+        </main>
+        <footer>
+            {% block footer %}
+            {% endblock %}
+        </footer>
+    </body>
+</html>
