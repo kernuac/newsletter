@@ -2,12 +2,12 @@
 <html>
     <head>
         <title>Boletin FACSAL</title>
-        <link href="{{ url_for('/static/css/estilo.css') }}" />
+        <meta charset="utf-8" />
+        <link href="{{ url_for('static', filename='css/estilo.css') }}" rel="stylesheet" />
     </head>
     <body>
         <header>
-            {% block header %}
-            {% endblock %}
+            <h1>Bolatin FACSAL</h1>
         </header>
         <nav>
             {% block main_navbar %}
