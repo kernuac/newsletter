@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block main_navbar %}
+{% endblock %}
+
+{% block main_content %}
+<aside>
+
+</aside>
+<main>
+    <header>
+        <h2>Editar Base de datos {{ database.id_wpdb }}</h2>
+    </header>
+    <div>
+        <form>
+            <div>
+                <label for="">Nombre</label>
+                <input type="text" value="{{ database.name }}" />
+            </div>
+            <div>
+                <label for="">Descripcion</label>
+                <textarea>{{ database.description }}</textarea>
+            </div>
+            <div>
+                <label for="">Host</label>
+                <input type="text" value="{{ database.dbhost }}" />
+            </div>
+            <div>
+                <label for="">Usuario</label>
+                <input type="text" value="{{ database.dbuser }}" />
+            </div>
+            <div>
+                <label for="">Contarseña</label>
+                <input type="password" value="{{ database.dbpass }}" />
+            </div>
+            <div>
+                <label for="">Puerto</label>
+                <input type="text" value="{{ database.dbport }}"/>
+            </div>
+            <div>
+                <label for="">Nombre Base de datos</label>
+                <input type="text" value="{{ database.dbdatabase }}" />
+            </div>
+            <div>
+                <label for="">Prefijo Base de Datos</label>
+                <input type="text" value="{{ database.dbprefix }}" />
+            </div>
+        </form>
+    </div>
+    <footer>
+
+    </footer>
+</main>
+<aside>
+
+</aside>
+{% endblock %}

@@ -7,4 +7,4 @@ Home = Blueprint( 'Home', __name__ )
 def index():
     databases = WpDatabases()
     data = databases.find()
-    return render_template( "home.html" )
+    return render_template( "home.html", data=data )

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block main_navbar %}
+{% endblock %}
+
+{% block main_content %}
+<aside>
+
+</aside>
+<main>
+    <h2>Administracion de Bases de datos</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descipcion</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for row in data %}
+            <tr>
+                <td>{{ row.name }}</td>
+                <td>{{ row.description }}</td>
+                <td>
+                    <a href="{{ url_for( 
+                        'Admin.edit_databases', 
+                        id_wpdb=row.id_wpdb 
+                    ) }}">
+                        Editar
+                    </a>
+                    <a href="">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</main>
+<aside>
+
+</aside>
+{% endblock %}

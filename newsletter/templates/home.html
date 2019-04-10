@@ -4,4 +4,13 @@
 {% endblock %}
 
 {% block main_content %}
+<table>
+{% for row in data %}
+<tr>
+    <td>{{ row.id_wpdb }}</td>
+    <td>{{ row.name }}</td>
+    <td>{{ row.description }}</td>
+</tr>
+{% endfor %}
+</table>
 {% endblock %}
