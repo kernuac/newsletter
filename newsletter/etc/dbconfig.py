@@ -7,5 +7,3 @@ sqlitedb = SqliteDriver()
 sqlitedb.set_filedb( DevelopConfig.SQLITEFILE )
 sqlitemodel = Model()
 sqlitemodel.set_driver( sqlitedb )
-
-print ( DevelopConfig.SQLITEFILE )

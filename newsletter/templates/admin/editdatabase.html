@@ -9,29 +9,41 @@
 </aside>
 <main>
     <header>
-        <h2>Editar Base de datos {{ database.id_wpdb }}</h2>
+        <h2>{{ title }}</h2>
     </header>
     <div>
-        <form>
+        <form method="{{ method }}" action="{{ action }}">
             <div>
                 <label for="">Nombre</label>
-                <input type="text" value="{{ database.name }}" />
+                <input 
+                    type="text" 
+                    value="{{ database.name }}"
+                    name="txt_name" />
             </div>
             <div>
                 <label for="">Descripcion</label>
-                <textarea>{{ database.description }}</textarea>
+                <textarea name="txa_description">{{ database.description }}</textarea>
             </div>
             <div>
                 <label for="">Host</label>
-                <input type="text" value="{{ database.dbhost }}" />
+                <input 
+                    type="text" 
+                    value="{{ database.dbhost }}"
+                    name="txt_dbhost" />
             </div>
             <div>
                 <label for="">Usuario</label>
-                <input type="text" value="{{ database.dbuser }}" />
+                <input 
+                    type="text" 
+                    value="{{ database.dbuser }}" 
+                    name="txt_dbuser" />
             </div>
             <div>
                 <label for="">Contarseña</label>
-                <input type="password" value="{{ database.dbpass }}" />
+                <input 
+                    type="password" 
+                    value="{{ database.dbpass }}"
+                    name="pwd_dbpass" />
             </div>
             <div>
                 <label for="">Puerto</label>
@@ -44,6 +56,10 @@
             <div>
                 <label for="">Prefijo Base de Datos</label>
                 <input type="text" value="{{ database.dbprefix }}" />
+            </div>
+            <div>
+                <button type="reset">Limpiar</button>
+                <button type="submit">Guardar</button>
             </div>
         </form>
     </div>

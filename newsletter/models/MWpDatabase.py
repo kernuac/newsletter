@@ -16,6 +16,12 @@ class MWpDatabase:
     def set_id ( self, idwpdb ):
         self.__id = idwpdb
 
+    def get_name( self ):
+        return self.__name
+
+    def set_name( self, name ):
+        self.__name = name
+
     def get_description( self ):
         return self.__description
 
@@ -43,7 +49,7 @@ class MWpDatabase:
     def get_port ( self ):
         return self.__dbport
 
-    def set_port ( self, dbport ):
+    def set_port ( self, dbport=3306 ):
         self.__dbport = dbport
 
     def get_database ( self ):

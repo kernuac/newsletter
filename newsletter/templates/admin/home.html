@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block main_navbar %}
+{% endblock %}
+
+{% block main_content %}
+<aside>
+
+</aside>
+<main>
+    <header>
+        <h2>Configuracion</h2>
+    </header>
+    <div>
+        <ul>
+            {% for m in modules %}
+            <li>
+                <a href="{{ m.url }}">{{ m.label }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <footer>
+
+    </footer>
+</main>
+<aside>
+
+</aside>
+{% endblock %}

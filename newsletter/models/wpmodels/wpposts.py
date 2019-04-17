@@ -1,4 +1,5 @@
 from newsletter.etc.dbconfig import sqlitedb
+
 class WpPosts:
     def __init__( self ):
         pass

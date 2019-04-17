@@ -34,6 +34,18 @@ class SqliteDriver:
 
         return data
 
+    def single_query( self, query, args ):
+        self.__connect()
+
+        result = self.__cursor.execute( query, args )
+
+        affectedRows = result.rowcount
+        
+        self.__conn.commit()
+        self.__close()
+
+        return affectedRows
+
     def set_filedb( self, filedb ):
         self.__file = filedb
 
