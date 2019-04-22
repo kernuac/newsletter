@@ -6,7 +6,7 @@ from flask_jwt import jwt_required, current_identity
 Admin = Blueprint( 'Admin', __name__ )
 
 @Admin.route( '/' )
-#@jwt_required()
+@jwt_required()
 def index():
     modules = [
         {
@@ -16,6 +16,10 @@ def index():
         {
             "url" : url_for( 'Admin.get_newsletters' ),
             "label": "Newsletters"
+        },
+        {
+            "url" : url_for( 'Admin.get_users' ),
+            "label": "Usuarios"
         }
     ]
     return render_template(
@@ -58,4 +62,12 @@ def get_newsletters():
     return render_template(
         'admin/newsletterslist.html',
         newsletters=newsletters
+    )
+
+@Admin.route( '/users' )
+def get_users():
+    users = []
+    return render_template(
+        'admin/userslist.html',
+        users=users
     )

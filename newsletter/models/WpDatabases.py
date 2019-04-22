@@ -6,6 +6,9 @@ class WpDatabases():
             select * from wpdatabases where 1 = 1
         """
         
+        if len( filters ) < 1:
+            return sqlitedb.execute( query, filters )
+
         values = [ fl[1] for fl in filters ]
         values = tuple( values )
 

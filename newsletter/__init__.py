@@ -9,18 +9,19 @@ from newsletter.routes.admin import Admin
 
 from newsletter.api import auth
 
+from newsletter.etc.dbconfig import sqlitedb
+
+from newsletter.services.auth import request_token, identify
+
 app = Flask( __name__ )
 apiv1 = Api( app, prefix='/api/v1' )
 
 app.config.from_object( DevelopConfig )
+app.config['SECRET_KEY'] = 'super-secret'
 
-def authenticate( username, password ):
-    return False
 
-def identity( payload ):
-    return False
 # JWT
-jwt = JWT( app, authenticate, identity )
+jwt = JWT( app, request_token, identify )
 
 # api endpoints
 apiv1.add_resource ( auth.Login, '/login' )
