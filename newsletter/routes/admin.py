@@ -1,12 +1,12 @@
 from flask import Blueprint, render_template, url_for, request
 from newsletter.controllers.admin.DataBases import DataBases
-from newsletter.models.WpDatabases import WpDatabases 
+from newsletter.models.WpDatabases import WpDatabases
+from newsletter.models.Users import Users
 from flask_jwt import jwt_required, current_identity
 
 Admin = Blueprint( 'Admin', __name__ )
 
 @Admin.route( '/' )
-@jwt_required()
 def index():
     modules = [
         {
@@ -66,7 +66,9 @@ def get_newsletters():
 
 @Admin.route( '/users' )
 def get_users():
-    users = []
+    musers = Users()
+    users = musers.find()
+    print( str( users ) )
     return render_template(
         'admin/userslist.html',
         users=users

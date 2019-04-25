@@ -25,5 +25,5 @@ class Users:
 
     def get_by_id( self, userid ):
         return self.find([
-            ['user_id = ?', userid]
+            [ 'user_id = ?', userid ]
         ])[0]
