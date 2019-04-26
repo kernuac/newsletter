@@ -12,7 +12,7 @@
         <h2>{{ title }}</h2>
     </header>
     <div>
-        <a href="{{ url_for( 'Admin.form_new_database' ) }}">
+        <a href="{{ url_for( 'Admin.form_new_user' ) }}">
             Nuevo Usuario
         </a>
         <table>
@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{ u.username }}</td>
                     <td>
-                        <a href="">
+                        <a href="{{ url_for( 'Admin.form_edit_user', user_id=u.user_id ) }}">
                             Editar
                         </a>
                         <a href="">Eliminar</a>

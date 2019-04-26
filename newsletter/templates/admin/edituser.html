@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block main_navbar %}
+{% endblock %}
+
+{% block main_content %}
+<aside>
+
+</aside>
+<main>
+    <header>
+        <h2>{{ title }}</h2>
+    </header>
+    <div>
+        <form method="{{ method }}" action="{{ action }}">
+            <div>
+                <label for="">Nombre de Usuario</label>
+                <input 
+                    type="text" 
+                    value="{{ user.username }}"
+                    name="txt_username" />
+            </div>
+            <div>
+                <label for="">Password</label>
+                <input
+                    type="password"
+                    value="{{ user.passwd }}"
+                    name="pwd_passwd" />
+            </div>
+            <div>
+                <label for="">Email</label>
+                <input 
+                    type="email" 
+                    value="{{ user.email }}"
+                    name="eml_email" />
+            </div>
+            <div>
+                <button type="reset">Limpiar</button>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+
+    </footer>
+</main>
+<aside>
+
+</aside>
+{% endblock %}

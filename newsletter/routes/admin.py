@@ -68,8 +68,27 @@ def get_newsletters():
 def get_users():
     musers = Users()
     users = musers.find()
-    print( str( users ) )
+    title="Administración de Usuarios"
     return render_template(
         'admin/userslist.html',
-        users=users
+        users=users, title=title
+    )
+
+@Admin.route( '/users/new' )
+def form_new_user():
+    user=[]
+    title = "Nuevo Usuario"
+    return render_template(
+        'admin/edituser.html',
+        user=user, title=title
+    )
+
+@Admin.route( '/users/<int:user_id>/edit' )
+def form_edit_user( user_id ):
+    users = Users()
+    user = users.get_by_id( user_id )
+    title = "Editar Usuario"
+    return render_template(
+        'admin/edituser.html',
+        user=user, title=title
     )
