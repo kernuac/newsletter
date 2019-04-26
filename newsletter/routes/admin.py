@@ -44,7 +44,6 @@ def form_new_database():
     elif request.method == 'GET':
         return controller.show_edit_form()
 
-
 @Admin.route( '/<id_wpdb>/edit' )
 def edit_databases( id_wpdb ):
     databases = WpDatabases()
