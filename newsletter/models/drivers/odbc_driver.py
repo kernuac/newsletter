@@ -43,3 +43,17 @@ class OdbcDriver:
     def __close( self ):
         self.__cursor = None
         self.__conn.close()
+
+    def execute( self, query, args=() ):
+        self.__connect()
+        
+        result = self.__cursor.execute( query, args )
+        data = []
+        columns = [ col[0] for col in result.description ]
+        
+        for row in result.fetchall():
+            data.append( dict( zip( columns, row ) ) )
+
+        self.__close()
+
+        return data

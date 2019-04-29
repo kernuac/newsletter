@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block main_navbar %}
+{% endblock %}
+
+{% block main_content %}
+<aside>
+
+</aside>
+<main>
+    <header>
+        <h2>{{ title }}</h2>
+    </header>
+    <div>
+        <a href="{{ url_for( 'Admin.form_new_newsletter' ) }}">
+            Nuevo Boletín
+        </a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Creado en</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for n in newsletters %}
+                <tr>
+                    <td>{{ n.title }}</td>
+                    <td>{{ n.published_at }}</td>
+                    <td>
+                        <a href="{{ url_for( 'Admin.form_edit_newsletter', newsletter_id=n.newsletter_id ) }}">
+                            Editar
+                        </a>
+                        <a href="">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <footer>
+
+    </footer>
+</main>
+<aside>
+
+</aside>
+{% endblock %}

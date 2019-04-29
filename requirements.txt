@@ -3,3 +3,4 @@ mysql
 mysql-connector
 flask-jwt
 pylint
+pyodbc

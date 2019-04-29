@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, url_for, request
 from newsletter.controllers.admin.DataBases import DataBases
 from newsletter.models.WpDatabases import WpDatabases
 from newsletter.models.Users import Users
+from newsletter.models.nl.newsletters import NewsLetters
+
 from flask_jwt import jwt_required, current_identity
 
 Admin = Blueprint( 'Admin', __name__ )
@@ -57,10 +59,12 @@ def edit_databases( id_wpdb ):
 
 @Admin.route( '/newsletters' )
 def get_newsletters():
-    newsletters = []
+    mNewsletters = NewsLetters()
+    newsletters = mNewsletters.find()
+    title='Administración de Boletines'
     return render_template(
         'admin/newsletterslist.html',
-        newsletters=newsletters
+        newsletters=newsletters, title=title
     )
 
 @Admin.route( '/users' )
@@ -91,3 +95,13 @@ def form_edit_user( user_id ):
         'admin/edituser.html',
         user=user, title=title
     )
+
+
+@Admin.route( '/newsletters/<int:newsletter_id>/edit' )
+def form_edit_newsletter( newsletter_id ):
+    return render_template( 'admin/editnewsletters.html' )
+
+@Admin.route( '/newsletters/new' )
+def form_new_newsletter():
+    return render_template( 'admin/editnewsletters.html' )
+
