@@ -26,8 +26,12 @@ def create_app( test_config=None ):
     from newsletter.routes.admin import Admin
     app.register_blueprint( Admin, url_prefix='/admin' )
 
+    from newsletter.routes.newsletters import Newsletters
+    app.register_blueprint( Newsletters, url_prefix='/newsletters' )
+
     from newsletter.routes.home import Home
     app.register_blueprint( Home )
+
 
     return app
 #from flask import Flask

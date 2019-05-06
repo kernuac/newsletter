@@ -10,12 +10,13 @@ class MysqlDriver:
         self.__cursor = None
 
     def __connect( self ):
-        self.__conn = mysql.conenctor.connect(
+        self.__conn = mysql.connector.connect(
             host=self.get_host(),
             user=self.get_user(),
-            passwd=self.get_passwd()
+            passwd=self.get_passwd(),
+            database=self.get_database()
         )
-        self.__cursor = self.__conn.cursor()
+        self.__cursor = self.__conn.cursor( dictionary=True )
 
     def __close( self ):
         self.__cursor = None
@@ -44,5 +45,26 @@ class MysqlDriver:
 
     def get_passwd( self ):
         return self.__pass
+
+    def get_prefix( self ):
+        return self.__prefix
+
+    def set_prefix( self, dbprefix ):
+        self.__prefix = dbprefix
+
+    def get_database ( self ):
+        return self.__database
+
+    def set_database( self, database ):
+        self.__database = database
+
+    def execute( self, query, args=() ):
+        self.__connect()
+        
+        self.__cursor.execute( query, args )
+        data = self.__cursor.fetchall()
+        self.__close()
+        return data
+    
 
     
