@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block main_navbar %}
+{% endblock %}
+
+{% block main_content %}
+<aside>
+
+</aside>
+<main>
+    <header>
+        <h2>{{ title }}</h2>
+    </header>
+    <div>
+        <div>
+            {% for d in dashboard %}
+            <div>
+                <header>
+                    <h3>Últimas 10 noticias de {{ d.name }}</h3>
+                </header>
+                <div>
+                    {% for i in d.data %}
+                    <article>
+                        <header>
+                            <h4>{{ i.get_title() }}</h4>
+                        </header>
+                        <p><img src="{{ i.get_featured_img() }}" width="200"/></p>
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+</main>
+<aside>
+
+</aside>
+{% endblock %}
